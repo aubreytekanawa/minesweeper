@@ -1,7 +1,49 @@
 document.addEventListener('DOMContentLoaded', startGame)
 
-// Define your `board` object here!
-// var board = 
+// Define your `board` object here! My board is defined as the result of a function
+// that generates a number of cells according to a (size) argument.
+
+var board = { 
+      cells: generateBoard(6)
+      }  
+        function generateBoard(size) {
+
+// Create the cells array using 2 for-loops, one for laying out the cells horizontally
+// The other loop is to drop the loop down to repeat the loop until the loop reaches the specified number of rows.
+
+var cells = [] 
+// 
+for (x= 0; x< size; x++) {
+// Row Loop (creates y coordinates in the array)
+  for (y=0; y< size; y++) {
+    cell = {
+      row: x,
+      col: y,
+      isMine: false,
+      hidden: true
+      }
+      cells.push(cell)
+    }
+  }   
+// Make a loop to generate the cells
+
+// Fill the cells with the generated cells
+
+// Return the cells array
+return cells
+}
+
+
+
+// 
+
+
+//Cell States
+//    isMine: false 
+//    isFlag: false
+//    hidden: false
+
+
 
 function startGame () {
   // Don't remove this function call: it makes the game work!
