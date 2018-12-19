@@ -3,9 +3,7 @@ document.addEventListener('DOMContentLoaded', startGame)
 // BOARD DEFINITION
 // My board is the result of a function that generates a number of cells according to an argument.
 
-var board = { 
-      cells: generateBoard(6)
-      }  
+var board = { cells: generateBoard(6)}  
         function generateBoard(size) {
 // CODING THE BOARD GRID
 // The function create the cells array using 2 for-loops, one for laying out the cells horizontally
@@ -24,8 +22,8 @@ for (i= 0; i< size; i++) {
 // The loop also has to assign states for each cell before they are pushed into the array. 
 // State 1: Does it have a mine or not, I dealt with this one by using a random binary number generator to
 // get a 1 or a 0 result which the code then converts into the boolean true or false statement. 
-// I have messed with the probability of generating a mine to 25% using the math.random generator. 
-        isMine: Math.random()<0.25,0:1,
+// I have messed with the probability of generating a mine to 22% using the math.random generator. 
+        isMine: Math.random()<0.22,0:1,
 // State 2: is the cell hidden or not. All cells will need to start as hidden so this is easy, the default will be true 
 // until a conditions (mouse click) triggers a change to false status. 
         hidden: true,
@@ -69,6 +67,8 @@ function countMines (cell) {
     return count;
   }
 
+  document.addEventListener("click", checkForWin);
+  document.addEventListener("contextmenu", checkForWin);
 
   lib.initBoard()
 }
@@ -76,18 +76,18 @@ function countMines (cell) {
 
 // CONFIRM WIN
 // Define this function to look for a win condition:
+function checkForWin () {
+  var check= 0
 // 1. Are all of the cells that are NOT mines visible?
+for (var i = 0; i < board.cells.length; i++) {
+  if 
+  (check.isMine == false && check.hidden == true) 
+  {return false;}
+
+  lib.displayMessage('You win!')
 // 2. Are all of the mines marked?
 // You can use this function call to declare a winner (once you've
 // detected that they've won, that is!)
-//   lib.displayMessage('You win!')     
-  function checkForWin () {
-        for (var i = 0; i < board.cells.length; i++) {
-            if (board.cells[i].isMine == false && board.cells[i].hidden == false) { 
-           lib.displayMessage('You win!') 
- 
-
-      }
+//   lib.displayMessage('You win!')               
     }
   }
-
